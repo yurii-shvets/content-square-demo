@@ -1,5 +1,6 @@
 import React from 'react';
 import {NavigationContainer, useNavigation} from '@react-navigation/native';
+import {WebView as NativeWebView} from 'react-native-webview';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 
 import {createStackNavigator} from '@react-navigation/stack';
@@ -20,9 +21,10 @@ const Main = () => {
 
 const WebView = () => {
   return (
-    <View style={styles.wrapper}>
-      <Text>Webview</Text>
-    </View>
+    <NativeWebView
+      style={styles.wrapper}
+      source={{uri: 'https://www.google.com.ua'}}
+    />
   );
 };
 
@@ -30,10 +32,8 @@ const Stack = createStackNavigator();
 
 export const RootNavigator: React.FC = () => (
   <Stack.Navigator>
-    <Stack.Group key="stacks">
-      <Stack.Screen name="Main" component={Main} />
-      <Stack.Screen name="WebView" component={WebView} />
-    </Stack.Group>
+    <Stack.Screen name="Main" component={Main} />
+    <Stack.Screen name="WebView" component={WebView} />
   </Stack.Navigator>
 );
 
