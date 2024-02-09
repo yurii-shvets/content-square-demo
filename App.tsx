@@ -1,6 +1,7 @@
 import React from 'react';
 import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {WebView as NativeWebView} from 'react-native-webview';
+import {CSWebView} from '@contentsquare/react-native-bridge';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 
 import {createStackNavigator} from '@react-navigation/stack';
@@ -21,9 +22,17 @@ const Main = () => {
 
 const WebView = () => {
   return (
-    <NativeWebView
-      style={styles.wrapper}
-      source={{uri: 'https://www.google.com.ua'}}
+    <CSWebView
+      url="https://www.google.com.ua"
+      renderWebView={(onLayout, webViewUrl) => {
+        return (
+          <NativeWebView
+            onLayout={onLayout}
+            style={styles.wrapper}
+            source={{uri: webViewUrl}}
+          />
+        );
+      }}
     />
   );
 };

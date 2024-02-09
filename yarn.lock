@@ -1159,6 +1159,11 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@contentsquare/react-native-bridge@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@contentsquare/react-native-bridge/-/react-native-bridge-4.2.0.tgz#76c592d29ae0fcb78ac622f9f0578bd4cc4d941d"
+  integrity sha512-NtssK1ZGXRPjkVfc3tkN1FtRV4wt78pDqrFbvkNS9FnriOAxCX+HV1c3BuIjO7nQqen2ownze8TAzD+2n0BSPw==
+
 "@egjs/hammerjs@^2.0.17":
   version "2.0.17"
   resolved "https://registry.yarnpkg.com/@egjs/hammerjs/-/hammerjs-2.0.17.tgz#5dc02af75a6a06e4c2db0202cae38c9263895124"
