@@ -1,0 +1,6 @@
+module ContentsquareBridgeModule {
+  umbrella header "ContentsquareBridgeModule-umbrella.h"
+
+  export *
+  module * { export * }
+}

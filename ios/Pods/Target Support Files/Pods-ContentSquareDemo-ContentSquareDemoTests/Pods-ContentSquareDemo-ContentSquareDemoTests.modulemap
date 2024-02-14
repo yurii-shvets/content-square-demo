@@ -1,0 +1,6 @@
+module Pods_ContentSquareDemo_ContentSquareDemoTests {
+  umbrella header "Pods-ContentSquareDemo-ContentSquareDemoTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

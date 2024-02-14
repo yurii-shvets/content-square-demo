@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-ContentSquareDemo/Pods-ContentSquareDemo-resources.sh
+${PODS_ROOT}/CS_iOS_SDK_STATIC/Resources/ContentsquareBundle.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/CS_iOS_SDK_STATIC/CS_iOS_SDK_STATIC.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/React-Core/RCTI18nStrings.bundle

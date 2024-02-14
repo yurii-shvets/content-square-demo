@@ -1,0 +1,17 @@
+{
+  "extends": "expo-module-scripts/tsconfig.plugin",
+  "ts-node": {
+    // these options are overrides used only by ts-node
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  },
+  "compilerOptions": {
+    "outDir": "./build",
+    "target": "es6",
+    "module": "commonjs",
+    "esModuleInterop": true
+  },
+  "include": ["./src", "jest.config.js", "fixtures"],
+  "exclude": ["**/__mocks__/*", "**/__tests__/*"]
+}

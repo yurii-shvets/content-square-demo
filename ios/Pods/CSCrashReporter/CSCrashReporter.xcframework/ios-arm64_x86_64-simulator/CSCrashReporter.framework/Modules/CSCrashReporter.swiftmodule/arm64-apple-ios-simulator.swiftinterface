@@ -1,0 +1,165 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)
+// swift-module-flags: -target arm64-apple-ios17.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name CSCrashReporter
+@_exported import CSCrashReporter
+import Swift
+import _Concurrency
+@_hasMissingDesignatedInitializers final public class CrashReporter {
+  public init?(configuration: CSCrashReporter.CrashReporterConfig)
+  @objc deinit
+}
+extension CSCrashReporter.CrashReporter {
+  final public var customData: Foundation.Data! {
+    get
+    set
+  }
+  final public func enableAndReturnError() throws
+  final public func hasPendingCrashReport() -> Swift.Bool
+  final public func purgePendingCrashReport() -> Swift.Bool
+  final public func loadPendingCrashReport() throws -> CSCrashReporter.CrashReport
+}
+public struct CrashReporterConfig {
+  public let signalHandlerType: CSCrashReporter.SignalHandlerType
+  public let symbolicationStrategy: CSCrashReporter.SymbolicationStrategy
+  public init(signalHandlerType: CSCrashReporter.SignalHandlerType, symbolicationStrategy: CSCrashReporter.SymbolicationStrategy)
+}
+public enum SignalHandlerType {
+  case BSD
+  case mach
+  public static func == (a: CSCrashReporter.SignalHandlerType, b: CSCrashReporter.SignalHandlerType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct SymbolicationStrategy : Swift.OptionSet {
+  public init(rawValue: Swift.UInt)
+  public let rawValue: Swift.UInt
+  public typealias ArrayLiteralElement = CSCrashReporter.SymbolicationStrategy
+  public typealias Element = CSCrashReporter.SymbolicationStrategy
+  public typealias RawValue = Swift.UInt
+}
+public struct CrashReport {
+  public let systemInfo: CSCrashReporter.SystemInfo?
+  public let machineInfo: CSCrashReporter.MachineInfo?
+  public let applicationInfo: CSCrashReporter.ApplicationInfo?
+  public let processInfo: CSCrashReporter.ProcessInfo?
+  public let signalInfo: CSCrashReporter.SignalInfo?
+  public let machExceptionInfo: CSCrashReporter.MachExceptionInfo?
+  public let exceptionInfo: CSCrashReporter.ExceptionInfo?
+  public let threads: [CSCrashReporter.ThreadInfo]
+  public let images: [CSCrashReporter.BinaryImageInfo]
+  public let customData: Foundation.Data?
+  public init(systemInfo: CSCrashReporter.SystemInfo?, machineInfo: CSCrashReporter.MachineInfo?, applicationInfo: CSCrashReporter.ApplicationInfo?, processInfo: CSCrashReporter.ProcessInfo?, signalInfo: CSCrashReporter.SignalInfo?, machExceptionInfo: CSCrashReporter.MachExceptionInfo?, exceptionInfo: CSCrashReporter.ExceptionInfo?, threads: [CSCrashReporter.ThreadInfo], images: [CSCrashReporter.BinaryImageInfo], customData: Foundation.Data?)
+}
+public struct SystemInfo {
+  public let operatingSystem: CSCrashReporter.OperatingSystem?
+  public let operatingSystemVersion: Swift.String?
+  public let operatingSystemBuild: Swift.String?
+  public let timestamp: Foundation.Date?
+  public init(operatingSystem: CSCrashReporter.OperatingSystem?, operatingSystemVersion: Swift.String?, operatingSystemBuild: Swift.String?, timestamp: Foundation.Date?)
+}
+public enum OperatingSystem {
+  case macOSX
+  case iPhoneOS
+  case iPhoneSimulator
+  case appleTVOS
+  case unknown
+  public static func == (a: CSCrashReporter.OperatingSystem, b: CSCrashReporter.OperatingSystem) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct MachineInfo {
+  public let modelName: Swift.String?
+  public let processorInfo: CSCrashReporter.ProcessorInfo?
+  public let processorCount: Swift.UInt32
+  public let logicalProcessorCount: Swift.UInt32
+  public init(modelName: Swift.String?, processorInfo: CSCrashReporter.ProcessorInfo?, processorCount: Swift.UInt32, logicalProcessorCount: Swift.UInt32)
+}
+public struct ApplicationInfo {
+  public let identifier: Swift.String?
+  public let version: Swift.String?
+  public let marketingVersion: Swift.String?
+  public init(identifier: Swift.String?, version: Swift.String?, marketingVersion: Swift.String?)
+}
+public struct ProcessInfo {
+  public let processName: Swift.String?
+  public let processId: Swift.UInt32
+  public let processPath: Swift.String?
+  public let processStartTime: Foundation.Date?
+  public let parentProcessName: Swift.String?
+  public let parentProcessId: Swift.UInt32
+  public let native: Swift.Bool
+  public init(processName: Swift.String?, processId: Swift.UInt32, processPath: Swift.String?, processStartTime: Foundation.Date?, parentProcessName: Swift.String?, parentProcessId: Swift.UInt32, native: Swift.Bool)
+}
+public struct SignalInfo {
+  public let name: Swift.String?
+  public let code: Swift.String?
+  public let address: Swift.UInt64
+  public init(name: Swift.String?, code: Swift.String?, address: Swift.UInt64)
+}
+public struct MachExceptionInfo {
+  public let type: Swift.UInt64
+  public let codes: [Swift.UInt64]
+  public init(type: Swift.UInt64, codes: [Swift.UInt64])
+}
+public struct ExceptionInfo {
+  public let name: Swift.String?
+  public let reason: Swift.String?
+  public let stackFrames: [CSCrashReporter.StackFrameInfo]
+  public init(name: Swift.String?, reason: Swift.String?, stackFrames: [CSCrashReporter.StackFrameInfo])
+}
+public struct ThreadInfo {
+  public let threadNumber: Swift.Int
+  public let stackFrames: [CSCrashReporter.StackFrameInfo]
+  public let crashed: Swift.Bool
+  public let registers: [CSCrashReporter.RegisterInfo]
+  public init(threadNumber: Swift.Int, stackFrames: [CSCrashReporter.StackFrameInfo], crashed: Swift.Bool, registers: [CSCrashReporter.RegisterInfo])
+}
+public struct RegisterInfo {
+  public let name: Swift.String?
+  public let value: Swift.UInt64
+  public init(name: Swift.String?, value: Swift.UInt64)
+}
+public struct BinaryImageInfo {
+  public let baseAddress: Swift.UInt64
+  public let size: Swift.UInt64
+  public let name: Swift.String?
+  public let imageUUID: Swift.String?
+  public let codeType: CSCrashReporter.ProcessorInfo?
+  public init(baseAddress: Swift.UInt64, size: Swift.UInt64, name: Swift.String?, imageUUID: Swift.String?, codeType: CSCrashReporter.ProcessorInfo)
+}
+public struct ProcessorInfo {
+  public let typeEncoding: CSCrashReporter.ProcessorTypeEncoding?
+  public let type: Swift.UInt64
+  public let subtype: Swift.UInt64
+  public init(typeEncoding: CSCrashReporter.ProcessorTypeEncoding?, type: Swift.UInt64, subtype: Swift.UInt64)
+}
+public enum ProcessorTypeEncoding {
+  case mach
+  case unknown
+  public static func == (a: CSCrashReporter.ProcessorTypeEncoding, b: CSCrashReporter.ProcessorTypeEncoding) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct StackFrameInfo {
+  public let instructionPointer: Swift.UInt64
+  public let symbolInfo: CSCrashReporter.SymbolInfo?
+  public init(instructionPointer: Swift.UInt64, symbolInfo: CSCrashReporter.SymbolInfo?)
+}
+public struct SymbolInfo {
+  public let name: Swift.String?
+  public let startAddress: Swift.UInt64
+  public let endAddress: Swift.UInt64
+  public init(name: Swift.String?, startAddress: Swift.UInt64, endAddress: Swift.UInt64)
+}
+extension CSCrashReporter.SignalHandlerType : Swift.Equatable {}
+extension CSCrashReporter.SignalHandlerType : Swift.Hashable {}
+extension CSCrashReporter.OperatingSystem : Swift.Equatable {}
+extension CSCrashReporter.OperatingSystem : Swift.Hashable {}
+extension CSCrashReporter.ProcessorTypeEncoding : Swift.Equatable {}
+extension CSCrashReporter.ProcessorTypeEncoding : Swift.Hashable {}

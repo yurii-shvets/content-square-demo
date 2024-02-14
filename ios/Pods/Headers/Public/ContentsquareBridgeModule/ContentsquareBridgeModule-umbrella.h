@@ -1,0 +1,1 @@
+../../../Target Support Files/ContentsquareBridgeModule/ContentsquareBridgeModule-umbrella.h

@@ -1,0 +1,31 @@
+{
+  "name": "ContentsquareBridgeModule",
+  "version": "4.2.0",
+  "summary": "A JavaScript bridge to the native iOS and Android Contentsquare SDKs, for React Native apps.",
+  "description": "ContentsquareBridgeModule",
+  "homepage": "https://www.contentsquare.com",
+  "license": "MIT",
+  "authors": {
+    "Romain Bouic": "romain.bouic@contentsquare.com"
+  },
+  "platforms": {
+    "ios": "12.4"
+  },
+  "source": {
+    "git": "https://github.com/ContentSquare/cs-react-native-sdk.git",
+    "tag": "4.2.0"
+  },
+  "dependencies": {
+    "CS_iOS_SDK_STATIC": [
+      "4.29.1"
+    ],
+    "React": [
+
+    ]
+  },
+  "requires_arc": true,
+  "source_files": "ios/**/*.{h,m,swift}",
+  "exclude_files": "ios/Pods",
+  "compiler_flags": "-Wno-unreachable-code",
+  "static_framework": true
+}

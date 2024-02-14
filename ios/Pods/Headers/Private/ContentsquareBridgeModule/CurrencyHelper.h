@@ -1,0 +1,1 @@
+../../../../../node_modules/@contentsquare/react-native-bridge/ios/ContentsquareBridgeModule/Generated/CurrencyHelper.h
